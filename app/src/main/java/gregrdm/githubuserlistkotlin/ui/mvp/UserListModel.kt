@@ -2,7 +2,8 @@ package gregrdm.githubuserlistkotlin.ui.mvp
 
 import gregrdm.githubuserlistkotlin.network.UserQueryApi
 import gregrdm.githubuserlistkotlin.network.model.UserItemContainer
-import io.reactivex.Observable
+import rx.Observable
+
 
 /**
  *
