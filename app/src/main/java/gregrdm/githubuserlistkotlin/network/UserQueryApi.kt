@@ -1,6 +1,6 @@
 package gregrdm.githubuserlistkotlin.network
 
-import gregrdm.githubuserlistkotlin.network.model.UserQueryResponse
+import gregrdm.githubuserlistkotlin.network.model.UserItemContainer
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Headers
@@ -14,5 +14,5 @@ interface UserQueryApi {
 
     @GET("users")
     @Headers("Authorization: Bearer 4ef5c63a8a147df75a084ab81a4274795aa245e9")
-    fun getUsers(@Query("q") userName: String): Observable<UserQueryResponse>
+    fun getUsers(@Query("q") userName: String): Observable<UserItemContainer>
 }

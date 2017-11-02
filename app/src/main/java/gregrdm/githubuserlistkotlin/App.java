@@ -21,7 +21,7 @@ public class App extends Application {
 
         netComponent = DaggerNetComponent.builder()
                 .appModule(new AppModule(this))
-                .netModule(new NetModule(""))
+                .netModule(new NetModule("https://api.github.com/search/"))
                 .build();
 
     }
