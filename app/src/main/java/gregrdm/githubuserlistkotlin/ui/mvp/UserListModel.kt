@@ -10,8 +10,7 @@ import rx.Observable
  */
 
 class UserListModel(val userQueryApi: UserQueryApi): UserListMVP.Model {
-    override fun getUserList(reload: Boolean): Observable<UserItemContainer> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun getUserList(reload: Boolean, username: String): Observable<UserItemContainer> =
+            userQueryApi.getUsers(username).map { it }
 
 }

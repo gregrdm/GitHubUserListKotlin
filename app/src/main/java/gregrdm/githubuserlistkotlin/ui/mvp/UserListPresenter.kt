@@ -15,7 +15,7 @@ class UserListPresenter(val view: UserListMVP.View,
 
     override fun loadUserList(reload: Boolean, username: String?) {
         view.setLoading(true)
-        sub = model.getUserList(reload)
+        sub = model.getUserList(reload, username!!)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

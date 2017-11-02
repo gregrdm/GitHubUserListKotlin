@@ -13,7 +13,7 @@ interface UserListMVP {
 
 
     interface Model {
-        fun getUserList(reload: Boolean): Observable<UserItemContainer>
+        fun getUserList(reload: Boolean, username: String): Observable<UserItemContainer>
     }
 
     interface Presenter {
