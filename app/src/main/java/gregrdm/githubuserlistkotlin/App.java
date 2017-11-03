@@ -15,6 +15,7 @@ public class App extends Application {
 
     private NetComponent netComponent;
 
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -23,6 +24,7 @@ public class App extends Application {
                 .appModule(new AppModule(this))
                 .netModule(new NetModule("https://api.github.com/search/"))
                 .build();
+
 
     }
 
