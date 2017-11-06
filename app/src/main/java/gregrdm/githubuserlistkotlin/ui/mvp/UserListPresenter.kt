@@ -1,6 +1,7 @@
 package gregrdm.githubuserlistkotlin.ui.mvp
 
 
+import gregrdm.githubuserlistkotlin.utils.SchedulersImpl
 import rx.Subscription
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
@@ -12,15 +13,15 @@ import javax.inject.Inject
  */
 
 class UserListPresenter
-@Inject constructor(val view: UserListMVP.View, val model: UserListMVP.Model) : UserListMVP.Presenter {
+@Inject constructor(val view: UserListMVP.View, val model: UserListMVP.Model, val schedulers: SchedulersImpl) : UserListMVP.Presenter {
     private var sub: Subscription? = null
 
     override fun loadUserList(reload: Boolean, username: String?) {
         view.setLoading(true)
 
         sub = model.getUserList(reload, username!!)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(schedulers.subscriber)
+                .observeOn(schedulers.observer)
                 .subscribe({
                     view.onUserListLoaded(it.items)
                     view.setLoading(false)
