@@ -35,6 +35,8 @@ class UserListActivity : AppCompatActivity(), UserListMVP.View {
         val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         recycler_view.setLayoutManager(layoutManager)
 
+
+        // Quick search button inside EditText; TODO change
         val txtsearch = findViewById(R.id.text_input_edit_text) as EditText
         txtsearch.setOnTouchListener(View.OnTouchListener { _, event ->
             if (event.action == MotionEvent.ACTION_UP) {
